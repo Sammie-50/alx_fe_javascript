@@ -1,0 +1,186 @@
+try this out 
+
+/* ========== GLOBAL RESET ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+html, body {
+  background-color: aliceblue;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  color: #222;
+   min-height: 100%;
+  overflow-x: hidden;
+}
+
+/* ========== HEADINGS ========== */
+h1 {
+  font-size: 3rem;
+  text-align: center;
+  margin: 20px 0;
+}
+
+/* ========== CONTAINER ========== */
+#container {
+  margin: 50px auto 0;
+  width: 90%;
+  max-width: 1000px;
+  background-color: rgb(255, 107, 2);
+  color: aliceblue;
+  padding: 50px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ========== LABELS ========== */
+label {
+  margin-left: 80px;
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+/* ========== QUOTE DISPLAY ========== */
+#quoteDisplay {
+  width: 60%;
+  height: 150px;
+  background-color: aliceblue;
+  color: black;
+  border-radius: 10px;
+  border: 2px solid rgb(75, 75, 75);
+  text-align: center;
+  padding: 20px;
+  margin: 20px auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ========== NEW QUOTE FORM ========== */
+#myNewQuote {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+}
+
+/* ========== BUTTONS ========== */
+button {
+  padding: 10px 24px;
+  background-color: rgb(78, 78, 250);
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  margin: 20px;
+  border: none;
+  border-radius: 8px;
+  color: aliceblue;
+  font-size: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  background-color: rgb(44, 44, 241);
+  transform: translateY(-2px);
+}
+
+/* ========== IMPORT SECTION ========== */
+#import {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px 20px;
+}
+
+/* Inputs */
+input {
+  width: 350px;
+  max-width: 90%;
+  border: none;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 6px;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+}
+
+input:focus {
+  outline: none;
+  border: 2px solid rgb(78, 78, 250);
+}
+
+/* ========== CATEGORY ========== */
+/* Wrap category filter nicely */
+#myCategory {
+  display: flex;
+  flex-direction: column; /* stack label and select */
+  align-items: center;    /* center them horizontally */
+  margin: 15px 0;
+  width: 100%;
+}
+
+/* Style the label */
+#myCategory label {
+  margin-bottom: 6px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Style the select */
+#categoryFilter {
+  width: 100%;
+  max-width: 350px;   /* 🔹 match quote box width */
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+
+#categoryFilter:focus {
+  outline: none;
+  border: 2px solid rgb(78, 78, 250);
+}
+
+/* ========== EXPORT SECTION ========== */
+#export {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 780px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  #quoteDisplay {
+    width: 90%;
+    height: auto;
+    padding: 15px;
+  }
+
+  #container {
+    width: 95%;
+    padding: 15px;
+  }
+
+  label {
+    margin-left: 20px;
+  }
+
+  input {
+    width: 90%;
+    font-size: 15px;
+  }
+
+  button {
+    width: 100%;
+    font-size: 1rem;
+    margin: 10px 0;
+  }
+}

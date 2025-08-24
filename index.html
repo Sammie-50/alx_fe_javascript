@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Quote Generator</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div id="container">
+  <h1>Dynamic Quote Generator</h1>
+    
+
+  <!-- Display random quote -->
+  <div id="quoteDisplay"></div>
+  <div id="myNewQuote">
+  <button id="newQuote">Show New Quote</button>
+
+ </div>
+  <!-- Add new quote -->
+  <div id="import">
+    <input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />   <br><br>
+    <input id="newQuoteText" type="text" placeholder="Enter a new quote" /> <br><br>
+    <input id="newQuoteCategory" type="text" placeholder="Enter quote category" /> <br><br>
+    <button onclick="createAddQuoteForm()">Add Quote</button>
+  </div>
+
+
+  <!-- Category filter -->
+  <!-- Category filter -->
+  <div id="myCategory">
+    <label for="categoryFilter">Filter by category:</label>
+    <select id="categoryFilter" onchange="filterQuotes()">
+      <option value="all">All Categories</option>
+      <!-- Populated dynamically -->
+    </select>
+  </div>
+
+
+
+  <!-- JSON import/export -->
+    <div id="export">
+    <button id="exportJson">Export Quotes as JSON</button>
+   </div>
+ 
+
+</div>
+  <script src="script.js"></script>
+  <script>
+    // Export JSON
+    document.getElementById('exportJson').addEventListener('click', () => {
+      const dataStr = JSON.stringify(quotes, null, 2);
+      const blob = new Blob([dataStr], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = "quotes.json";
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+
+
+    // Import JSON
+    function importFromJsonFile(event) {
+      const fileReader = new FileReader();
+      fileReader.onload = function(e) {
+        try {
+          const importedQuotes = JSON.parse(e.target.result);
+          quotes.push(...importedQuotes);
+          saveQuotes();
+          populateCategories();
+          showRandomQuote();
+          alert('Quotes imported successfully!');
+        } catch(err) {
+          alert('Invalid JSON file!');
+        }
+      };
+      fileReader.readAsText(event.target.files[0]);
+    }
+  </script>
+</body>
+</html>
